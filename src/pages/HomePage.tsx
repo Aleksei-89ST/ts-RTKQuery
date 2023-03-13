@@ -20,8 +20,8 @@ function HomePage() {
 
   function clickHandler(username: string) {
     fetchRepos(username);
-    setDrop(false)
-    setSearch('')
+    setDrop(false);
+    setSearch("");
   }
 
   const { isLoading, isError, data } = useSearchUsersQuery(debounced, {
@@ -56,8 +56,11 @@ function HomePage() {
             ))}
           </ul>
         )}
-        <div className="container">{reposLoading && <p>Repos are loading...</p>}
-        {repos?.map(repo => <RepoCard repo={repo} key={repo.id}/>)}
+        <div className="container">
+          {reposLoading && <p>Repos are loading...</p>}
+          {repos?.map((repo) => (
+            <RepoCard repo={repo} key={repo.id} />
+          ))}
         </div>
       </div>
     </div>
